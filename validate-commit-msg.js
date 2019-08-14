@@ -11,6 +11,7 @@ var MAX_LENGTH = config.maxSubjectLength || 100
 var IGNORED = new RegExp(util.format('(^WIP)|(^%s$)', semverRegex().source))
 
 // fixup! and squash! are part of Git, commits tagged with them are not intended to be merged, cf. https://git-scm.com/docs/git-commit
+// eslint-disable-next-line
 var PATTERN = /^((fixup! |squash! )?(\w+)(?:\(([^\)\s]+)\))?: (.+))(?:\n|$)/
 var MERGE_COMMIT_PATTERN = /^Merge /
 
