@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import App from './App.vue'
 import lazybee from 'vue-lazybee'
+import './shared/config/index.js'
+import App from './App.vue'
 
 Vue.use(lazybee)
 Vue.config.productionTip = false

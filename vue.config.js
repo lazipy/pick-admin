@@ -17,6 +17,15 @@ module.exports = {
       .set('shared', resolve('src/shared'))
   },
 
+  // 向预处理器 Loader 传递选项
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "~@/shared/config/element-ui/element-variables.scss";`
+      }
+    }
+  },
+
   // 设置服务和 mock
   devServer: {
     before: require('vue-cli-mock')

@@ -12,6 +12,10 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "element-ui": "^2.11.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "normalize.css": "^8.0.1",
+    "particles.js": "^2.0.0",
     "vue": "^2.6.10",
     "vue-lazybee": "^1.1.0",
     "vue-router": "^3.0.3",

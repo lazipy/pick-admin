@@ -3,24 +3,31 @@ import { userLogin } from '@/services/user'
 export default {
   namespaced: true,
   state: {
-    userId: 0,
-    userName: ''
+    id: 0,
+    name: ''
   },
   getters: {
-    userId: state => state.userId
+    userId: state => state.id
   },
   mutations: {
     save: (state, userInfo) => {
-      state.userId = userInfo.userId
-      state.userName = userInfo.name
+      state = { ...userInfo }
     }
   },
   actions: {
-    login ({ commit }) {
-      userLogin().then(res => {
-        if (res.code === '0') {
-          commit('save', res.data)
-        }
+    /**
+     * user login
+     */
+    login ({ commit }, payload) {
+      return new Promise((resolve, reject) => {
+        userLogin(payload).then(res => {
+          if (res.code === '0') {
+            commit('save', res.data.data)
+          }
+          resolve(res.data)
+        }).catch(error => {
+          reject(error)
+        })
       })
     }
   }
