@@ -4,25 +4,28 @@
     <header>
       <h1 class="title">
         <img class="logo" src="../assets/images/logo.png" alt="logo">
-        <Divider type="vertical" height="48%" />
-        <span>后台管理系统模板</span>
+        <divider type="vertical" height="45%" />
+        <span>{{ $t('login.title') }}</span>
       </h1>
+      <switch-language color="#ffffff" />
     </header>
     <!-- login form -->
     <el-card class="login-form">
-      <span slot="header">欢迎登录</span>
+      <span slot="header">{{ $t('login.desc') }}</span>
       <el-form ref="form" :model="formData" :rules="rules">
         <!-- user name -->
         <el-form-item prop="name">
-          <el-input v-model="formData.name" placeholder="用户名" />
+          <el-input v-model="formData.name" :placeholder="$t('login.name')" />
         </el-form-item>
         <!-- password -->
         <el-form-item prop="password">
-          <el-input v-model="formData.password" placeholder="密码" />
+          <el-input v-model="formData.password" :placeholder="$t('login.password')" />
         </el-form-item>
         <!-- btn login -->
         <el-form-item>
-          <el-button class="btn-login" type="primary" :loading="loading" @click="onSubmit">登录</el-button>
+          <el-button class="btn-login" type="primary" :loading="loading" @click="onSubmit">
+            {{ $t('login.submit') }}
+          </el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -30,10 +33,13 @@
 </template>
 
 <script>
+import Divider from '@/shared/components/Divider'
+import SwitchLanguage from '@/shared/components/SwitchLanguage'
 import particlesOptions from '@/shared/config/particles'
 
 export default {
   name: 'Login',
+  components: { Divider, SwitchLanguage },
   data () {
     return {
       loading: false,
@@ -42,8 +48,8 @@ export default {
         password: ''
       },
       rules: {
-        name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+        name: [{ required: true, message: this.$t('login.nameTips'), trigger: 'blur' }],
+        password: [{ required: true, message: this.$t('login.passwordTips'), trigger: 'blur' }]
       }
     }
   },
@@ -91,11 +97,11 @@ export default {
       width: 100%;
       height: 68px;
       line-height: 68px;
+      padding: 0 40px 0 20px;
     }
     .title {
       display: flex;
       align-items: center;
-      padding-left: 20px;
       margin: 0;
       height: 100%;
       font-size: 22px;
@@ -113,7 +119,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 360px;
+      width: 380px;
 
       .btn-login {
         width: 100%;

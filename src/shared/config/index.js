@@ -8,8 +8,5 @@ import './element-ui/theme/index.css'
 import 'particles.js/particles'
 // styles
 import '../styles/index.scss'
-// import global components
-import GlobalComponents from '../components/global'
 
 Vue.use(ElementUI)
-Vue.use(GlobalComponents)

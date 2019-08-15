@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { OneOf } from '../../utils'
+import { OneOf } from '../utils'
 
 export default {
   name: 'Divider',

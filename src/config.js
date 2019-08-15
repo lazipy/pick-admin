@@ -1,4 +1,5 @@
 export default {
+  locale: 'zh-CN',
   routes: [
     {
       path: '/login',
