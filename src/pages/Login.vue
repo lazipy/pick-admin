@@ -19,7 +19,7 @@
         </el-form-item>
         <!-- password -->
         <el-form-item prop="password">
-          <el-input v-model="formData.password" :placeholder="$t('login.password')" />
+          <el-input type="password" v-model="formData.password" :placeholder="$t('login.password')" />
         </el-form-item>
         <!-- btn login -->
         <el-form-item>

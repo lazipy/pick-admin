@@ -1,8 +1,9 @@
-import { request } from 'vue-lazybee'
+import { request } from '@/shared/lazybee'
 
-export function userLogin () {
+export function userLogin (data) {
   return request({
     url: '/user/login',
-    method: 'get'
+    method: 'post',
+    data
   })
 }

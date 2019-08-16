@@ -26,8 +26,8 @@ module.exports = {
     }
   },
 
-  // 设置服务和 mock
-  devServer: {
-    before: require('vue-cli-mock')
+  // 插件的预设
+  pluginOptions: {
+    mock: { entry: './mock/index.js', debug: true }
   }
 }

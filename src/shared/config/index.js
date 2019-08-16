@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import lazybee from '../lazybee'
 // normalize.css - A modern alternative to CSS resets
 import 'normalize.css/normalize.css'
 // element-ui
@@ -9,4 +10,7 @@ import 'particles.js/particles'
 // styles
 import '../styles/index.scss'
 
+Vue.use(lazybee)
 Vue.use(ElementUI)
+
+export default lazybee
