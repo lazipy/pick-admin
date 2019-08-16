@@ -9,7 +9,6 @@ export default {
             Message.error(response.data.msg ? response.data.msg : '返回状态码错误')
           }
         }
-        return response.data
       } else {
         Message.error('响应成功，但是响应信息不存在！')
       }

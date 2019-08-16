@@ -1,4 +1,7 @@
+import hooks from '@/shared/auth/hooks'
+
 export default {
+  ...hooks,
   routes: [
     {
       path: '/login',
