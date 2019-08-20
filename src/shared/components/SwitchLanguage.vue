@@ -1,7 +1,6 @@
 <template>
   <el-dropdown
     class="switch-language"
-    trigger="click"
     @command="onCommand"
   >
     <i class="iconfont icon-translate" :style="{ color: color }"></i>
@@ -51,7 +50,7 @@ export default {
 
     .icon-translate {
       display: inline-block;
-      padding: 0 12px;
+      padding: 0 15px;
     }
   }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <el-dropdown
     class="user-avatar"
-    trigger="click"
     @command="onCommand"
   >
     <span class="user-avatar__wraper">
@@ -56,6 +55,6 @@ export default {
     justify-content: center;
     align-items: center;
     height: 60px;
-    padding: 0 12px;
+    padding: 0 15px;
   }
 </style>

@@ -4,7 +4,11 @@
 
     </div>
     <div class="float-right">
+      <!-- user message -->
+      <user-message is-dot />
+      <!-- switch language -->
       <switch-language :languages="languages" />
+      <!-- user actions -->
       <user-avatar
         :size="40"
         :src="userInfo.avatar"
@@ -16,13 +20,14 @@
 </template>
 
 <script>
+import UserMessage from '@/shared/components/UserMessage'
 import UserAvatar from '@/shared/components/UserAvatar'
 import SwitchLanguage from '@/shared/components/SwitchLanguage'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'TopBar',
-  components: { UserAvatar, SwitchLanguage },
+  components: { UserMessage, UserAvatar, SwitchLanguage },
   data () {
     return {
       // 用户头像下拉
