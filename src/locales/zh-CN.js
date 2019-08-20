@@ -1,4 +1,10 @@
 export default {
+  // router desc
+  router: {
+    login: '登录',
+    home: '首页',
+    overview: '应用总览'
+  },
   // login page
   login: {
     title: '中后台管理平台',
@@ -8,5 +14,11 @@ export default {
     nameTips: '请输入用户名',
     passwordTips: '请输入密码',
     submit: '登录'
+  },
+  // layout
+  layout: {
+    profile: '个人信息',
+    modifyPassword: '修改密码',
+    logout: '退出'
   }
 }

@@ -24,6 +24,16 @@ export default {
     Vue.use(VueI18nStorge)
   },
   init () {
+    let i18n = new VueI18nStorge({
+      default: params.locale,
+      files: require.context('@/locales', true, /\.js$/)
+    })
+
+    let store = new AutoVuex({
+      files: require.context('@/models', true, /\.js$/),
+      pages: require.context('@/pages', true, /model\.js$/)
+    })
+
     let router = new Router({
       mode: params.mode,
       base: params.base,
@@ -35,16 +45,6 @@ export default {
       filter: params.filter,
       beforeEach: params.beforeEach,
       afterEach: params.afterEach
-    })
-
-    let store = new AutoVuex({
-      files: require.context('@/models', true, /\.js$/),
-      pages: require.context('@/pages', true, /model\.js$/)
-    })
-
-    let i18n = new VueI18nStorge({
-      default: params.locale,
-      files: require.context('@/locales', true, /\.js$/)
     })
 
     return {

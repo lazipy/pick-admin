@@ -8,7 +8,7 @@ const layoutConfig = [
     name: 'login',
     component: () => import('@/pages/login.vue'),
     meta: {
-      title: '登录'
+      title: 'login'
     }
   },
   {
@@ -16,13 +16,13 @@ const layoutConfig = [
     path: '',
     component: () => import('@/layout/index.vue'),
     redirect: 'welcome',
-    meta: { title: '首页' },
+    meta: { title: 'home' },
     children: [
       {
         path: 'welcome',
         name: 'welcome',
         component: () => import('@/pages/welcome.vue'),
-        meta: { title: '工作台' }
+        meta: { title: 'overview' }
       }
     ]
   },

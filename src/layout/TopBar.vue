@@ -33,9 +33,9 @@ export default {
     return {
       // 用户头像下拉
       actions: [
-        { key: '/personal/profile', icon: 'profile', text: '个人信息' },
-        { key: '/personal/modify-password', icon: 'modify-password', text: '修改密码' },
-        { key: '/login', icon: 'logout', divided: true, text: '退出' }
+        { key: '/personal/profile', icon: 'profile', text: this.$t('layout.profile') },
+        { key: '/personal/modify-password', icon: 'modify-password', text: this.$t('layout.modifyPassword') },
+        { key: '/login', icon: 'logout', divided: true, text: this.$t('layout.logout') }
       ]
     }
   },

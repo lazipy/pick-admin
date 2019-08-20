@@ -3,8 +3,8 @@
     <transition-group name="breadcrumb">
       <template v-for="(item, index)  in breadcrumbs">
         <el-breadcrumb-item :key="item.path + index" v-if="item.meta.title">
-          <span v-if="index === breadcrumbs.length - 1">{{ item.meta.title }}</span>
-          <router-link v-else :to="item.redirect || item.path">{{ item.meta.title }}</router-link>
+          <span v-if="index === breadcrumbs.length - 1">{{ generateTitle(item.meta.title) }}</span>
+          <router-link v-else :to="item.redirect || item.path">{{ generateTitle(item.meta.title) }}</router-link>
         </el-breadcrumb-item>
       </template>
     </transition-group>
@@ -13,6 +13,7 @@
 
 <script>
 import { gtZero } from '@/shared/utils'
+import { generateTitle } from '@/shared/utils/i18n'
 
 export default {
   name: 'BreadcrumbNavigator',
@@ -22,6 +23,9 @@ export default {
       default: () => [],
       validator: gtZero
     }
+  },
+  methods: {
+    generateTitle // generateTitle by vue-i18n
   }
 }
 </script>
