@@ -1,11 +1,12 @@
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import lazybee from './shared/config/index.js'
 
 const layoutConfig = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/pages/Login.vue'),
+    component: () => import('@/pages/login.vue'),
     meta: {
       title: '登录'
     }
@@ -13,13 +14,13 @@ const layoutConfig = [
   {
     indexRouter: true,
     path: '',
-    component: () => import('@/pages/Layout.vue'),
+    component: () => import('@/layout/index.vue'),
     redirect: 'welcome',
     children: [
       {
         path: 'welcome',
         name: 'welcome',
-        component: () => import('@/pages/Welcome.vue'),
+        component: () => import('@/pages/welcome.vue'),
         meta: { title: '首页' }
       }
     ]
@@ -41,9 +42,30 @@ const layoutConfig = [
 
 export default {
   routes: layoutConfig,
-  beforeEach: (to, from, next) => {
+  beforeEach: async (to, from, next) => {
+    const userName = window.sessionStorage.getItem('userName')
+    const { store } = lazybee
     NProgress.start()
-    next()
+    if (userName) {
+      if (to.path === '/login') {
+        next('/')
+        NProgress.done()
+      } else {
+        if (!store.state.user.userInfo.id) {
+          await store.dispatch('user/query', { name: userName })
+          next()
+        } else {
+          next()
+        }
+      }
+    } else {
+      if (to.path !== '/login') {
+        next('/login')
+        NProgress.done()
+      } else {
+        next()
+      }
+    }
   },
   afterEach: (to, from) => {
     NProgress.done()

@@ -7,7 +7,7 @@
         <divider type="vertical" height="45%" />
         <span>{{ $t('login.title') }}</span>
       </h1>
-      <switch-language color="#ffffff" />
+      <switch-language color="#ffffff" :languages="languages" />
     </header>
     <!-- login form -->
     <el-card class="login-form">
@@ -15,11 +15,18 @@
       <el-form ref="form" :model="formData" :rules="rules">
         <!-- user name -->
         <el-form-item prop="name">
-          <el-input v-model="formData.name" :placeholder="$t('login.name')" />
+          <el-input
+            v-model="formData.name"
+            @keyup.enter.native="onSubmit"
+            :placeholder="$t('login.name')" />
         </el-form-item>
         <!-- password -->
         <el-form-item prop="password">
-          <el-input type="password" v-model="formData.password" :placeholder="$t('login.password')" />
+          <el-input
+            type="password"
+            v-model="formData.password"
+            @keyup.enter.native="onSubmit"
+            :placeholder="$t('login.password')" />
         </el-form-item>
         <!-- btn login -->
         <el-form-item>
@@ -36,9 +43,10 @@
 import Divider from '@/shared/components/Divider'
 import SwitchLanguage from '@/shared/components/SwitchLanguage'
 import particlesOptions from '@/shared/config/particles'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Login',
+  name: 'login',
   components: { Divider, SwitchLanguage },
   data () {
     return {
@@ -52,6 +60,11 @@ export default {
         password: [{ required: true, message: this.$t('login.passwordTips'), trigger: 'blur' }]
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      languages: 'application/languages' // 语言种类
+    })
   },
   mounted () {
     /* eslint-disable */

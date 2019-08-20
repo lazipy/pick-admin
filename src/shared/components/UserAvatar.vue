@@ -1,15 +1,18 @@
 <template>
   <el-dropdown
-    class="switch-language"
+    class="user-avatar"
     trigger="click"
     @command="onCommand"
   >
-    <i class="iconfont icon-translate" :style="{ color: color }"></i>
+    <span class="user-avatar__wraper">
+      <Avatar :size="size" :src="src" />
+    </span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item
-        v-for="item in languages"
+        v-for="item in actions"
         :key="item.key"
-        :command="item.key">
+        :command="item.key"
+        :divided="item.divided">
         <svg-icon :iconClass="item.icon"></svg-icon>{{item.text}}
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -17,17 +20,23 @@
 </template>
 
 <script>
+import Avatar from './Avatar'
 import SvgIcon from './SvgIcon'
 import { gtZero } from '@/shared/utils'
 
 export default {
-  name: 'SwitchLanguage',
-  components: { SvgIcon },
+  name: 'UserAvatar',
+  components: { Avatar, SvgIcon },
   props: {
-    color: {
-      type: String
+    size: {
+      type: Number,
+      default: 48
     },
-    languages: {
+    src: {
+      type: String,
+      required: true
+    },
+    actions: {
       type: Array,
       default: () => [],
       validator: gtZero
@@ -35,23 +44,18 @@ export default {
   },
   methods: {
     onCommand (command) {
-      if (this.$i18n.getLocale() !== command) {
-        this.$i18n.setLocale(command)
-        this.$emit('change', command)
-      }
+      this.$emit('click', command)
     }
   }
 }
 </script>
 
 <style lang="scss">
-  .switch-language {
-    line-height: initial;
-    cursor: pointer;
-
-    .icon-translate {
-      display: inline-block;
-      padding: 0 12px;
-    }
+  .user-avatar__wraper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 12px;
   }
 </style>

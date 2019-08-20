@@ -7,3 +7,9 @@ export const OneOf = array => {
     return array.includes(val)
   }
 }
+
+/**
+ * 验证props的length必须大于0
+ * @param {*} array
+ */
+export const gtZero = (val) => val.length > 0

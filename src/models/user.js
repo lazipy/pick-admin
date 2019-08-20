@@ -1,17 +1,16 @@
-import { userLogin } from '@/services/user'
+import { userLogin, queryUserInfo } from '@/services/user'
 
 export default {
   namespaced: true,
   state: {
-    id: 0,
-    name: ''
+    userInfo: {}
   },
   getters: {
-    userId: state => state.id
+    userInfo: state => state.userInfo
   },
   mutations: {
     save: (state, userInfo) => {
-      state = { ...userInfo }
+      state.userInfo = userInfo
     }
   },
   actions: {
@@ -22,9 +21,25 @@ export default {
       return new Promise((resolve, reject) => {
         userLogin(payload).then(res => {
           if (res.code === '0') {
-            commit('save', res.data.data)
+            commit('save', res.data)
+            window.sessionStorage.setItem('userName', res.data.name)
           }
-          resolve(res.data)
+          resolve(res)
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+    /**
+     * user info
+     */
+    query ({ commit }, payload) {
+      return new Promise((resolve, reject) => {
+        queryUserInfo(payload).then(res => {
+          if (res.code === '0') {
+            commit('save', res.data)
+          }
+          resolve(res)
         }).catch(error => {
           reject(error)
         })

@@ -13,4 +13,4 @@ import '../styles/index.scss'
 Vue.use(lazybee)
 Vue.use(ElementUI)
 
-export default lazybee
+export default lazybee.init()

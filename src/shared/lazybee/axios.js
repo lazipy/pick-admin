@@ -43,7 +43,7 @@ function CreateService (params) {
       if (options.responseConfigCallBack) {
         options.responseConfigCallBack(response)
       }
-      return response
+      return response.data
     },
     error => {
       if (options.responseErrorCallBack) {

@@ -5,6 +5,6 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 new Vue({
-  ...lazybee.init(),
+  ...lazybee,
   render: h => h(App)
 }).$mount('#app')
