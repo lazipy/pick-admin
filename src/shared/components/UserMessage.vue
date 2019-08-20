@@ -1,5 +1,5 @@
 <template>
-  <div class="user-message">
+  <div class="user-message" @click="clickHandler">
     <el-badge v-bind="$attrs">
       <i class="el-icon-bell" :style="{color: color}"></i>
     </el-badge>
@@ -12,6 +12,11 @@ export default {
   props: {
     color: {
       type: String
+    }
+  },
+  methods: {
+    clickHandler () {
+      this.$emit('click')
     }
   }
 }

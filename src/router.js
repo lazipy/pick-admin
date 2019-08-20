@@ -16,12 +16,13 @@ const layoutConfig = [
     path: '',
     component: () => import('@/layout/index.vue'),
     redirect: 'welcome',
+    meta: { title: '首页' },
     children: [
       {
         path: 'welcome',
         name: 'welcome',
         component: () => import('@/pages/welcome.vue'),
-        meta: { title: '首页' }
+        meta: { title: '工作台' }
       }
     ]
   },

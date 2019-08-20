@@ -1,11 +1,11 @@
 <template>
   <el-header class="top-bar clearfix">
     <div class="float-left">
-
+      <breadcrumb-navigator :breadcrumbs="$router.breadcrumbs"/>
     </div>
     <div class="float-right">
       <!-- user message -->
-      <user-message is-dot />
+      <user-message is-dot @click="navigatorTo('/personal/message')" />
       <!-- switch language -->
       <switch-language :languages="languages" />
       <!-- user actions -->
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import BreadcrumbNavigator from '@/shared/components/BreadcrumbNavigator'
 import UserMessage from '@/shared/components/UserMessage'
 import UserAvatar from '@/shared/components/UserAvatar'
 import SwitchLanguage from '@/shared/components/SwitchLanguage'
@@ -27,14 +28,14 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'TopBar',
-  components: { UserMessage, UserAvatar, SwitchLanguage },
+  components: { BreadcrumbNavigator, UserMessage, UserAvatar, SwitchLanguage },
   data () {
     return {
       // 用户头像下拉
       actions: [
-        { key: 'profile', icon: 'profile', text: '个人信息' },
-        { key: 'modify-password', icon: 'modify-password', text: '修改密码' },
-        { key: 'logout', icon: 'logout', divided: true, text: '退出' }
+        { key: '/personal/profile', icon: 'profile', text: '个人信息' },
+        { key: '/personal/modify-password', icon: 'modify-password', text: '修改密码' },
+        { key: '/login', icon: 'logout', divided: true, text: '退出' }
       ]
     }
   },
@@ -45,11 +46,15 @@ export default {
     })
   },
   methods: {
-    avatarHandler (val) {
-      if (val === 'logout') {
+    avatarHandler (path) {
+      if (path === '/login') {
         window.sessionStorage.removeItem('userName')
-        this.$router.push('/login')
       }
+      this.navigatorTo(path)
+    },
+    // router push
+    navigatorTo (path) {
+      this.$router.push(path)
     }
   }
 }
@@ -63,19 +68,18 @@ export default {
     padding: 0 30px;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 0 3px 0 rgba(0,0,0,.04);
 
-    .float-right {
+    .float-left, .float-right {
       display: flex;
       align-items: center;
       height: 100%;
+    }
+    .float-right > div {
+      height: 60px;
+      line-height: 60px;
+      cursor: pointer;
 
-      > div {
-        height: 60px;
-        line-height: 60px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $--color-primary-light-9;
-        }
+      &:hover {
+        background-color: $--color-primary-light-9;
       }
     }
   }
