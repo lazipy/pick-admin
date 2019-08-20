@@ -1,0 +1,16 @@
+// float
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+[class^="el-icon-"], [class*=" el-icon-"] {
+  color: #606266;
+}
