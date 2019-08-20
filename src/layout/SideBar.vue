@@ -58,7 +58,7 @@ export default {
         max-height: inherit;
         max-width: inherit;
         height: 28px;
-        margin-left: 4px;
+        margin-left: 2px;
       }
       .title, .submenu-title {
         display: none;
@@ -74,6 +74,7 @@ export default {
       height: 60px;
       cursor: pointer;
       color: #ffffff;
+      overflow: hidden;
     }
     .logo {
       height: 36px;
