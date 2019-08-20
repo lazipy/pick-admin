@@ -6,6 +6,8 @@
  */
 import Vuei18n from 'vue-i18n'
 import Cookies from 'js-cookie'
+import elementEnLocale from 'element-ui/lib/locale/lang/en' // element-ui lang
+import elementZhLocale from 'element-ui/lib/locale/lang/zh-CN' // element-ui lang
 
 let messages = {}
 
@@ -14,7 +16,16 @@ function getLocales (files) {
   files.keys().forEach(key => {
     const name = key.slice(2, -3)
     const locale = files(key).default
-    messages[name] = locale
+    messages[name] =
+      name === 'en-US'
+        ? {
+          ...locale,
+          ...elementEnLocale
+        }
+        : {
+          ...locale,
+          ...elementZhLocale
+        }
   })
 }
 
