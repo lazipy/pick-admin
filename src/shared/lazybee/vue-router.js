@@ -1,27 +1,11 @@
+import Vue from 'vue'
 import Router from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import layoutRoutes from '@/router.js'
+import store from './vuex'
 
-let routes = []
-let isGet = false
-// 获取所有模块的router.js
-function getRoutes (modules) {
-  if (modules) {
-    modules.keys().forEach(route => {
-      const routerModule = modules(route)
-      routes.push(routerModule.default || routerModule)
-    })
-  }
-}
-
-// 实例化vue-router
-function instantiation (options) {
-  return new Router({
-    mode: options.mode,
-    base: options.base,
-    scrollBehavior: options.scrollBehavior,
-    routes: options.routes
-  })
-}
-
+let moduleRoutes = []
 // 添加访问历史记录
 function addVisiteRecord (router, to) {
   if (router.records) {
@@ -34,8 +18,8 @@ function addVisiteRecord (router, to) {
 }
 
 // 添加面包屑信息
-function addBreadcrumb (routes, router) {
-  routes = [...routes, ...router.options.routes]
+function addBreadcrumb (router) {
+  let routes = [...router.options.routes]
   const indexRoute = getIndexRoute(routes)
   let matched = router.currentRoute.matched.filter(item => item.name)
   const first = matched[0]
@@ -55,65 +39,60 @@ function getIndexRoute (routes) {
   return indexRoute
 }
 
+// 获取所有模块的router.js
+const modules = require.context('@/pages', true, /router\.js/)
+modules.keys().forEach(route => {
+  const routerModule = modules(route)
+  moduleRoutes.push(routerModule.default || routerModule)
+})
+
+Vue.use(Router)
+
+// 实例化vue-router
+let router = new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  scrollBehavior: () => ({ y: 0 }),
+  routes: layoutRoutes
+})
+
 /**
- * vue-router-despense
- * @param {*} options
+ * 路由前置钩子
  */
-function VueRouterDespense (options) {
-  let router = instantiation(options) // 实例化vue-router
-
-  /**
-   * 路由前置钩子
-   */
-  router.beforeEach((to, from, next) => {
-    if (!isGet) {
-      getRoutes(options.modules) // 获取模块的router.js
-      /**
-       * 过滤模块的路由配置，通常用于权限控制
-       */
-      if (options.filter) {
-        routes = options.filter(routes)
+router.beforeEach(async (to, from, next) => {
+  NProgress.start()
+  const userName = window.sessionStorage.getItem('userName')
+  if (userName) {
+    if (to.path === '/login') {
+      next('/')
+      NProgress.done()
+    } else {
+      if (!store.state.user.userInfo.id) {
+        await store.dispatch('user/query', { name: userName })
+        moduleRoutes.push({ path: '*', redirect: '/404' })
+        router.addRoutes(moduleRoutes)
+        next({ path: to.path, replace: true })
+      } else {
+        next()
       }
-      routes.push(options.notFount)
-      router.addRoutes(routes)
-      isGet = true
-      next({ path: to.path, replace: true })
     }
-
-    if (options.beforeEach) {
-      options.beforeEach(to, from, next)
+  } else {
+    if (to.path !== '/login') {
+      next('/login')
+      NProgress.done()
     } else {
       next()
     }
-  })
+  }
+})
 
-  /**
-   *路由后置钩子
-   */
-  router.afterEach((to, from) => {
-    /**
-     * 如果 record 为 true ,则记录访问历史记录
-     */
-    if (options.record) {
-      addVisiteRecord(router, to)
-    }
+/**
+ *路由后置钩子
+ */
+router.afterEach((to, from) => {
+  NProgress.done()
+  addVisiteRecord(router, to) // 记录访问历史记录
+  addBreadcrumb(router) // 添加面包屑
+})
 
-    /**
-     * 如果 breadcrumb 为 true ,则添加面包屑
-     */
-    if (options.breadcrumb) {
-      addBreadcrumb(routes, router)
-    }
-
-    // 执行钩子
-    if (options.afterEach) {
-      options.afterEach(to, from)
-    }
-  })
-
-  return router
-}
-
-VueRouterDespense.install = Router.install
-
-export default VueRouterDespense
+export default router

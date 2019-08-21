@@ -1,8 +1,4 @@
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-import lazybee from './shared/config/index.js'
-
-const layoutConfig = [
+export default [
   {
     path: '/login',
     name: 'login',
@@ -39,36 +35,3 @@ const layoutConfig = [
     meta: { title: '500' }
   }
 ]
-
-export default {
-  routes: layoutConfig,
-  notFount: { path: '*', redirect: '/404' },
-  beforeEach: async (to, from, next) => {
-    const userName = window.sessionStorage.getItem('userName')
-    const { store } = lazybee
-    NProgress.start()
-    if (userName) {
-      if (to.path === '/login') {
-        next('/')
-        NProgress.done()
-      } else {
-        if (!store.state.user.userInfo.id) {
-          await store.dispatch('user/query', { name: userName })
-          next()
-        } else {
-          next()
-        }
-      }
-    } else {
-      if (to.path !== '/login') {
-        next('/login')
-        NProgress.done()
-      } else {
-        next()
-      }
-    }
-  },
-  afterEach: (to, from) => {
-    NProgress.done()
-  }
-}

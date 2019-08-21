@@ -1,43 +1,36 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
 
-let getters = {}
-let modules = {}
+let models = {}
 
-function autoVuex (options) {
-  options.files.keys().forEach(key => {
-    // 如果是getters.js
-    if (key.startsWith('./getters.js')) {
-      getters = options.files(key).default
-      return
-    }
-    let path = key.slice(2, -3)
-    const storeModule = options.files(key).default
+/**
+ * 加载全局model
+ */
+const globalModels = require.context('@/models', true, /\.js$/)
+globalModels.keys().forEach(key => {
+  let path = key.slice(2, -3)
+  const model = globalModels(key).default
+  models[path] = model
+})
 
-    modules[path] = storeModule
-  })
+/**
+ * 加载模块model
+ */
+const moduleModels = require.context('@/pages', true, /model\.js$/)
+moduleModels.keys().forEach(key => {
+  let path = key.slice(2, -3)
+  if (path === 'model') {
+    path = 'pages'
+  } else if (path.indexOf('model') !== -1) {
+    path = path.slice(0, path.indexOf('model') - 1)
+  }
 
-  options.pages.keys().forEach(key => {
-    let path = key.slice(2, -3)
+  const model = moduleModels(key).default
+  models[path] = model
+})
 
-    if (path === 'model') {
-      path = 'pages'
-    } else if (path.indexOf('model') !== -1) {
-      path = path.slice(0, path.indexOf('model') - 1)
-    }
-    const storeModule = options.pages(key).default
+Vue.use(Vuex)
 
-    modules[path] = storeModule
-  })
-
-  let store = new Vuex.Store({
-    getters,
-    modules,
-    plugins: options.plugins
-  })
-  return store
-}
-
-autoVuex.install = Vuex.install
-
-// eslint-disable-next-line new-cap
-export default autoVuex
+export default new Vuex.Store({
+  modules: models
+})

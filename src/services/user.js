@@ -1,4 +1,4 @@
-import { request } from '@/shared/lazybee'
+import request from '@/shared/lazybee/axios'
 
 /**
  * user login
