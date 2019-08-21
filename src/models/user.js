@@ -21,7 +21,6 @@ export default {
       return new Promise((resolve, reject) => {
         userLogin(payload).then(res => {
           if (res.code === '0') {
-            commit('save', res.data)
             window.sessionStorage.setItem('userName', res.data.name)
           }
           resolve(res)

@@ -14,3 +14,12 @@
 [class^="el-icon-"], [class*=" el-icon-"] {
   color: #606266;
 }
+
+$lines: 2, 3, 4, 5;
+
+.text-ellipsis { @include text-truncate; }
+@each $line in $lines {
+  .text-ellipsis-#{$line} {
+    @include ellipsis($line);
+  }
+}

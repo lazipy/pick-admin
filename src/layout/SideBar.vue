@@ -77,7 +77,7 @@ export default {
       overflow: hidden;
     }
     .logo {
-      height: 36px;
+      height: 30px;
       margin-left: 24px;
       transition: all .2s;
     }
