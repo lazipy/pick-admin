@@ -3,7 +3,11 @@ export default {
   router: {
     login: '登录',
     home: '首页',
-    overview: '应用总览'
+    overview: '应用总览',
+    personal: '个人中心',
+    message: '消息列表',
+    profile: '用户信息',
+    modifyPassword: '修改密码'
   },
   // login page
   login: {
@@ -17,8 +21,10 @@ export default {
   },
   // layout
   layout: {
-    profile: '个人信息',
+    github: '查看源码',
+    message: '消息通知',
+    profile: '用户信息',
     modifyPassword: '修改密码',
-    logout: '退出'
+    logout: '退出登录'
   }
 }

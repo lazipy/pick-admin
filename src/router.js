@@ -13,9 +13,9 @@ const layoutConfig = [
   },
   {
     indexRouter: true,
-    path: '',
+    path: '/',
     component: () => import('@/layout/index.vue'),
-    redirect: 'welcome',
+    redirect: '/welcome',
     meta: { title: 'home' },
     children: [
       {
@@ -37,12 +37,12 @@ const layoutConfig = [
     name: 'error',
     component: () => import('@/pages/500.vue'),
     meta: { title: '500' }
-  },
-  { path: '*', redirect: '/404' }
+  }
 ]
 
 export default {
   routes: layoutConfig,
+  notFount: { path: '*', redirect: '/404' },
   beforeEach: async (to, from, next) => {
     const userName = window.sessionStorage.getItem('userName')
     const { store } = lazybee

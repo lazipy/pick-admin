@@ -41,6 +41,7 @@ export default {
       breadcrumb: params.breadcrumb,
       scrollBehavior: params.scrollBehavior,
       routes: params.routes,
+      notFount: params.notFount,
       modules: require.context('@/pages', true, /router\.js/),
       filter: params.filter,
       beforeEach: params.beforeEach,

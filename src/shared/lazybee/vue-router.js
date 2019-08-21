@@ -74,6 +74,7 @@ function VueRouterDespense (options) {
       if (options.filter) {
         routes = options.filter(routes)
       }
+      routes.push(options.notFount)
       router.addRoutes(routes)
       isGet = true
       next({ path: to.path, replace: true })

@@ -1,5 +1,7 @@
 <template>
-  <div class="welcome">welcome to qianfan</div>
+  <div class="welcome">
+    <p>welcome to qianfan</p>
+  </div>
 </template>
 
 <script>

@@ -1,9 +1,11 @@
 <template>
   <el-header class="top-bar clearfix">
     <div class="float-left">
-      <breadcrumb-navigator :breadcrumbs="$router.breadcrumbs"/>
+      <breadcrumb-navigator :breadcrumbs="breadcrumbs"/>
     </div>
     <div class="float-right">
+      <!-- github -->
+      <github href="https://github.com/lazipy/pick-admin" />
       <!-- user message -->
       <user-message is-dot @click="navigatorTo('/personal/message')" />
       <!-- switch language -->
@@ -22,15 +24,17 @@
 <script>
 import BreadcrumbNavigator from '@/shared/components/BreadcrumbNavigator'
 import UserMessage from '@/shared/components/UserMessage'
-import UserAvatar from '@/shared/components/UserAvatar'
 import SwitchLanguage from '@/shared/components/SwitchLanguage'
+import UserAvatar from '@/shared/components/UserAvatar'
+import Github from '@/shared/components/Github'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'TopBar',
-  components: { BreadcrumbNavigator, UserMessage, UserAvatar, SwitchLanguage },
+  components: { BreadcrumbNavigator, UserMessage, SwitchLanguage, UserAvatar, Github },
   data () {
     return {
+      breadcrumbs: [],
       // 用户头像下拉
       actions: [
         { key: '/personal/profile', icon: 'profile', text: this.$t('layout.profile') },
@@ -44,6 +48,15 @@ export default {
       languages: 'application/languages', // 语言种类
       userInfo: 'user/userInfo' // 用户信息
     })
+  },
+  watch: {
+    $route: {
+      handler () {
+        this.breadcrumbs = this.$router.breadcrumbs
+      },
+      immediate: true,
+      deep: true
+    }
   },
   methods: {
     avatarHandler (path) {

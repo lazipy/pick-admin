@@ -1,9 +1,11 @@
 <template>
-  <div class="user-message" @click="clickHandler">
-    <el-badge v-bind="$attrs">
-      <i class="el-icon-bell" :style="{color: color}"></i>
-    </el-badge>
-  </div>
+  <el-tooltip effect="dark" :content="$t(`layout.${message}`)" placement="bottom">
+    <div class="user-message" @click="clickHandler">
+      <el-badge v-bind="$attrs">
+        <i class="el-icon-bell" :style="{color: color}"></i>
+      </el-badge>
+    </div>
+  </el-tooltip>
 </template>
 
 <script>
@@ -12,6 +14,10 @@ export default {
   props: {
     color: {
       type: String
+    },
+    message: {
+      type: String,
+      default: 'message'
     }
   },
   methods: {
