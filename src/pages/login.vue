@@ -3,9 +3,9 @@
     <!-- header -->
     <header>
       <h1 class="title">
-        <img class="logo" src="../assets/images/logo.png" alt="logo">
+        <img class="logo" src="../assets/images/logo.svg" alt="logo">
         <divider type="vertical" height="45%" />
-        <span>{{ $t('login.title') }}</span>
+        <img class="desc" src="../assets/images/layout_logo.png" alt="logo">
       </h1>
       <switch-language color="#ffffff" :languages="languages" />
     </header>
@@ -113,6 +113,7 @@ export default {
       padding: 0 40px 0 20px;
     }
     .title {
+      flex: 1;
       display: flex;
       align-items: center;
       margin: 0;
@@ -122,6 +123,9 @@ export default {
       color: #ffffff;
 
       .logo {
+        height: 48px;
+      }
+      .desc {
         height: 48px;
       }
     }

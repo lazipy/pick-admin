@@ -2,7 +2,8 @@
   <el-aside :width="width" class="aside-bar" :class="collapsed && 'collapsed'">
     <!-- logo -->
     <div class="logo-wrap" @click="backhome">
-      <img class="logo" src="../assets/images/layout_logo.png" alt="logo">
+      <img class="logo" src="../assets/images/logo.svg" alt="logo">
+      <img class="desc" src="../assets/images/layout_logo.png" alt="logo">
     </div>
 
     <!-- menu -->
@@ -55,10 +56,10 @@ export default {
 
     &.collapsed {
       .logo {
-        max-height: inherit;
-        max-width: inherit;
-        height: 28px;
-        margin-left: 2px;
+        margin-left: 10px;
+      }
+      .desc {
+        display: none;
       }
       .title, .submenu-title {
         display: none;
@@ -77,9 +78,13 @@ export default {
       overflow: hidden;
     }
     .logo {
-      height: 30px;
-      margin-left: 24px;
+      height: 36px;
+      margin-left: 20px;
       transition: all .2s;
+    }
+    .desc {
+      height: 30px;
+      margin-left: 10px;
     }
     // menu
     .el-menu {

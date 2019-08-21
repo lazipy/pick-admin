@@ -2,10 +2,13 @@ export default {
   router: {
     login: 'log in',
     home: 'Home',
-    overview: 'Application overview'
+    overview: 'Application overview',
+    personal: 'Personal center',
+    message: 'Message list',
+    profile: 'Personal information',
+    modifyPassword: 'change Password'
   },
   login: {
-    title: 'Middle and background management platform',
     desc: 'Login please',
     name: 'username',
     password: 'password',
@@ -14,8 +17,10 @@ export default {
     submit: 'log in'
   },
   layout: {
+    github: 'View source',
+    message: 'notification',
     profile: 'Personal information',
     modifyPassword: 'change Password',
-    logout: 'drop out'
+    logout: 'sign out'
   }
 }
