@@ -17,6 +17,7 @@ export default {
     submit: 'log in'
   },
   layout: {
+    search: 'Site Search',
     github: 'View source',
     message: 'notification',
     profile: 'Personal information',

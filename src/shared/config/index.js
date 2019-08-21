@@ -9,10 +9,13 @@ import ElementUI from 'element-ui'
 import './element-ui/theme/index.css'
 // particles.js
 import 'particles.js/particles'
+// v-click-outside-x
+import * as vClickOutside from 'v-click-outside-x'
 // styles
 import '../styles/index.scss'
 
 Vue.use(ElementUI)
+Vue.use(vClickOutside)
 
 export default {
   router,

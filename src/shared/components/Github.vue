@@ -30,5 +30,6 @@ export default {
 <style lang="scss">
   .github {
     padding: 0 15px;
+    color: #606266;
   }
 </style>

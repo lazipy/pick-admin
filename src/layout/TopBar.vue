@@ -4,12 +4,12 @@
       <breadcrumb-navigator :breadcrumbs="breadcrumbs"/>
     </div>
     <div class="float-right">
+      <!-- search bar -->
+      <search-bar v-model="value" />
       <!-- github -->
       <github href="https://github.com/lazipy/pick-admin" />
       <!-- user message -->
       <user-message is-dot @click="navigatorTo('/personal/message')" />
-      <!-- switch language -->
-      <switch-language :languages="languages" />
       <!-- user actions -->
       <user-avatar
         :size="40"
@@ -17,12 +17,15 @@
         :actions="actions"
         @click="avatarHandler"
       />
+      <!-- switch language -->
+      <switch-language :languages="languages" />
     </div>
   </el-header>
 </template>
 
 <script>
 import BreadcrumbNavigator from '@/shared/components/BreadcrumbNavigator'
+import SearchBar from '@/shared/components/SearchBar'
 import UserMessage from '@/shared/components/UserMessage'
 import SwitchLanguage from '@/shared/components/SwitchLanguage'
 import UserAvatar from '@/shared/components/UserAvatar'
@@ -31,10 +34,19 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'TopBar',
-  components: { BreadcrumbNavigator, UserMessage, SwitchLanguage, UserAvatar, Github },
+  components: {
+    BreadcrumbNavigator,
+    SearchBar,
+    UserMessage,
+    SwitchLanguage,
+    UserAvatar,
+    Github
+  },
   data () {
     return {
       breadcrumbs: [],
+      // 搜索
+      value: '',
       // 用户头像下拉
       actions: [
         { key: '/personal/profile', icon: 'profile', text: this.$t('layout.profile') },
@@ -79,7 +91,6 @@ export default {
     width: 100%;
     height: 60px;
     line-height: 60px;
-    padding: 0 30px;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 0 3px 0 rgba(0,0,0,.04);
 
     .float-left, .float-right {

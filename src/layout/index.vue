@@ -8,7 +8,9 @@
       <top-bar />
       <!-- 内容主体 -->
       <el-main>
-        <router-view></router-view>
+        <div class="body">
+          <router-view></router-view>
+        </div>
       </el-main>
     </el-container>
   </el-container>
@@ -30,8 +32,16 @@ export default {
   }
 </style>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .layout {
     height: 100%;
+    .el-main {
+      background-color: #f1f2f6;
+      .body {
+        padding: 12px 16px;
+        min-height: 100%;
+        background-color: #fff;
+      }
+    }
   }
 </style>

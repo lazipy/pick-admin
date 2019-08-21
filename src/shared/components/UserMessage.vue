@@ -2,7 +2,7 @@
   <el-tooltip effect="dark" :content="$t(`layout.${message}`)" placement="bottom">
     <div class="user-message" @click="clickHandler">
       <el-badge v-bind="$attrs">
-        <i class="el-icon-bell" :style="{color: color}"></i>
+        <i class="iconfont icon-message" :style="{color: color}"></i>
       </el-badge>
     </div>
   </el-tooltip>
@@ -31,6 +31,7 @@ export default {
 <style lang="scss">
   .user-message {
     padding: 0 15px;
+    color: #606266;
 
     .el-badge {
       line-height: initial;

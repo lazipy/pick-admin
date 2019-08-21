@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <p>welcome to qianfan</p>
+    welcome to qianfan
   </div>
 </template>
 

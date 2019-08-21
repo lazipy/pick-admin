@@ -20,6 +20,7 @@ export default {
   },
   // layout
   layout: {
+    search: '站内搜索',
     github: '查看源码',
     message: '消息通知',
     profile: '个人信息',
