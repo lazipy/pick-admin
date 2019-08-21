@@ -11,16 +11,18 @@ const locales = require.context('@/locales', true, /\.js$/)
 locales.keys().forEach(key => {
   const name = key.slice(2, -3)
   const locale = locales(key).default
-  messages[name] =
-    name === 'en-US'
-      ? {
-        ...locale,
-        ...elementEnLocale
-      }
-      : {
-        ...locale,
-        ...elementZhLocale
-      }
+
+  if (name === 'en-US') {
+    messages[name] = {
+      ...locale,
+      ...elementEnLocale
+    }
+  } else {
+    messages[name] = {
+      ...locale,
+      ...elementZhLocale
+    }
+  }
 })
 
 // 缓存cookie

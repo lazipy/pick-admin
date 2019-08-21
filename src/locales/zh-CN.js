@@ -6,7 +6,7 @@ export default {
     overview: '应用总览',
     personal: '个人中心',
     message: '消息列表',
-    profile: '用户信息',
+    profile: '个人信息',
     modifyPassword: '修改密码'
   },
   // login page
@@ -23,7 +23,7 @@ export default {
   layout: {
     github: '查看源码',
     message: '消息通知',
-    profile: '用户信息',
+    profile: '个人信息',
     modifyPassword: '修改密码',
     logout: '退出登录'
   }

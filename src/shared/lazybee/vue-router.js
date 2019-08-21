@@ -66,15 +66,13 @@ router.beforeEach(async (to, from, next) => {
     if (to.path === '/login') {
       next('/')
       NProgress.done()
+    } else if (!store.state.user.userInfo.id) {
+      await store.dispatch('user/query', { name: userName })
+      moduleRoutes.push({ path: '*', redirect: '/404' })
+      router.addRoutes(moduleRoutes)
+      next({ path: to.path, replace: true })
     } else {
-      if (!store.state.user.userInfo.id) {
-        await store.dispatch('user/query', { name: userName })
-        moduleRoutes.push({ path: '*', redirect: '/404' })
-        router.addRoutes(moduleRoutes)
-        next({ path: to.path, replace: true })
-      } else {
-        next()
-      }
+      next()
     }
   } else {
     if (to.path !== '/login') {

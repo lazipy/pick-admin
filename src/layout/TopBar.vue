@@ -67,6 +67,7 @@ export default {
     },
     // router push
     navigatorTo (path) {
+      if (this.$route.path === path) return
       this.$router.push(path)
     }
   }
