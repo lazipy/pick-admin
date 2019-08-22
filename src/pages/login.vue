@@ -96,7 +96,7 @@ export default {
   #login {
     height: 100vh;
     canvas.particles-js-canvas-el {
-      background-color: $--color-primary;
+      background-color: $--color-primary-light-2;
     }
 
     // header style

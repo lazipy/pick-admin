@@ -56,12 +56,10 @@ module.exports = {
         data: {}
       })
     }
-    setTimeout(() => {
-      return res.json({
-        code: '0',
-        msg: '登录成功',
-        data: user
-      })
-    }, 1000)
+    return res.json({
+      code: '0',
+      msg: '获取成功',
+      data: user
+    })
   }
 }

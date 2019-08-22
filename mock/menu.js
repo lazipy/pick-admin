@@ -54,12 +54,10 @@ module.exports = {
   'POST /app/menus': (req, res) => {
     const { name } = req.body
     let menu = menus[name]
-    setTimeout(() => {
-      return res.json({
-        code: '0',
-        msg: '登录成功',
-        data: menu
-      })
-    }, 1000)
+    return res.json({
+      code: '0',
+      msg: '获取成功',
+      data: menu
+    })
   }
 }

@@ -1,5 +1,7 @@
 <template>
   <el-container class="layout">
+    <!-- 设置 -->
+    <setting />
     <!-- aside 侧边栏 -->
     <side-bar />
     <!-- 右侧内容 -->
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import Setting from './Setting'
 import SideBar from './SideBar'
 import TopBar from './TopBar'
 import TagView from '@/shared/components/TagView'
@@ -26,7 +29,7 @@ import MainContent from './Content'
 
 export default {
   name: 'layout',
-  components: { SideBar, TopBar, TagView, MainContent }
+  components: { Setting, SideBar, TopBar, TagView, MainContent }
 }
 </script>
 
