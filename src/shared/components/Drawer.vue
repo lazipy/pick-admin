@@ -138,6 +138,43 @@ export default {
 }
 </script>
 <style lang="scss">
+  .theme-4C70E8 {
+    .drawer {
+      .close {
+        background-color: $primary-1;
+      }
+    }
+    .handle {
+      &::before, &::after {
+        background-color: rgba($primary-1, .8);
+      }
+    }
+  }
+  .theme-1DC9B7 {
+    .drawer {
+      .close {
+        background-color: $primary-2;
+      }
+    }
+    .handle {
+      &::before, &::after {
+        background-color: rgba($primary-2, .8);
+      }
+    }
+  }
+  .theme-FFB822 {
+    .drawer {
+      .close {
+        background-color: $primary-3;
+      }
+    }
+    .handle {
+      &::before, &::after {
+        background-color: rgba($primary-3, .8);
+      }
+    }
+  }
+
   .drawer {
     position: fixed;
     top: 0;
@@ -160,7 +197,6 @@ export default {
       z-index: 4060;
       width: 48px;
       height: 48px;
-      background-color: $--color-primary;
       text-align: center;
       line-height: 48px;
       color: #ffffff;
@@ -201,7 +237,6 @@ export default {
         top: 0;
         width: 1px;
         height: 100%;
-        background-color: rgba($--color-primary, .8);
         content: ' ';
       }
 
@@ -210,8 +245,6 @@ export default {
         top: 50%;
         width: 2px;
         height: 18px;
-        color: $--color-primary;
-        background-color: rgba($--color-primary, .8);
         content: ' ';
         transform: translateY(-50%);
       }

@@ -2,11 +2,13 @@
   <div id="login">
     <!-- header -->
     <header>
+      <!-- logo and title -->
       <h1 class="title">
         <img class="logo" src="../assets/images/logo.svg" alt="logo">
         <divider type="vertical" height="45%" />
         <img class="desc" src="../assets/images/layout_logo.png" alt="logo">
       </h1>
+      <!-- language check -->
       <switch-language color="#ffffff" :languages="languages" />
     </header>
     <!-- login form -->
@@ -93,11 +95,17 @@ export default {
 </script>
 
 <style lang="scss">
+  .theme-4C70E8 #login canvas.particles-js-canvas-el {
+    background-color: $primary-1-light-2;
+  }
+  .theme-1DC9B7 #login canvas.particles-js-canvas-el {
+    background-color: $primary-2-light-2;
+  }
+  .theme-FFB822 #login canvas.particles-js-canvas-el {
+    background-color: $primary-2-light-2;
+  }
   #login {
     height: 100vh;
-    canvas.particles-js-canvas-el {
-      background-color: $--color-primary-light-2;
-    }
 
     // header style
     header {
@@ -126,7 +134,7 @@ export default {
         height: 48px;
       }
       .desc {
-        height: 48px;
+        height: 40px;
       }
     }
 

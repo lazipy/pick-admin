@@ -112,9 +112,6 @@ export default {
       .submenu-title {
         margin-left: 8px;
       }
-      .el-menu-item.is-active {
-        background-color: $--color-primary !important;;
-      }
       .el-submenu__title {
         overflow: hidden;
       }
@@ -149,5 +146,14 @@ export default {
         transition: transform .2s;
       }
     }
+  }
+  .theme-4C70E8 .el-menu-item.is-active {
+    background-color: $primary-1 !important;
+  }
+  .theme-1DC9B7 .el-menu-item.is-active {
+    background-color: $primary-2 !important;
+  }
+  .theme-FFB822 .el-menu-item.is-active {
+    background-color: $primary-3 !important;
   }
 </style>

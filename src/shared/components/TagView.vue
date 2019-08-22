@@ -157,9 +157,7 @@ export default {
           margin-right: 30px;
         }
         &.active {
-          background-color: $--color-primary-light-2;
           color: #fff;
-          border-color: $--color-primary-light-2;
           &::before {
             content: '';
             background: #fff;
@@ -212,5 +210,17 @@ export default {
         }
       }
     }
+  }
+  .theme-4C70E8 .tags-view-container .tags-view-item.active {
+    background-color: $primary-1-light-2;
+    border-color: $primary-1-light-2;
+  }
+  .theme-1DC9B7 .tags-view-container .tags-view-item.active {
+    background-color: $primary-2-light-2;
+    border-color: $primary-2-light-2;
+  }
+  .theme-FFB822 .tags-view-container .tags-view-item.active {
+    background-color: $primary-3-light-2;
+    border-color: $primary-3-light-2;
   }
 </style>

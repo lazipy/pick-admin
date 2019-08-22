@@ -1,0 +1,151 @@
+$--color-white: #ffffff;
+
+// theme 1
+$primary-1: #4C70E8;
+
+$primary-1-light-1: mix($--color-white, $primary-1, 10%) !default; /* 53a8ff */
+$primary-1-light-2: mix($--color-white, $primary-1, 20%) !default; /* 66b1ff */
+$primary-1-light-3: mix($--color-white, $primary-1, 30%) !default; /* 79bbff */
+$primary-1-light-4: mix($--color-white, $primary-1, 40%) !default; /* 8cc5ff */
+$primary-1-light-5: mix($--color-white, $primary-1, 50%) !default; /* a0cfff */
+$primary-1-light-6: mix($--color-white, $primary-1, 60%) !default; /* b3d8ff */
+$primary-1-light-7: mix($--color-white, $primary-1, 70%) !default; /* c6e2ff */
+$primary-1-light-8: mix($--color-white, $primary-1, 80%) !default; /* d9ecff */
+$primary-1-light-9: mix($--color-white, $primary-1, 90%) !default; /* ecf5ff */
+
+// theme 2
+$primary-2: #1DC9B7;
+
+$primary-2-light-1: mix($--color-white, $primary-2, 10%) !default; /* 53a8ff */
+$primary-2-light-2: mix($--color-white, $primary-2, 20%) !default; /* 66b1ff */
+$primary-2-light-3: mix($--color-white, $primary-2, 30%) !default; /* 79bbff */
+$primary-2-light-4: mix($--color-white, $primary-2, 40%) !default; /* 8cc5ff */
+$primary-2-light-5: mix($--color-white, $primary-2, 50%) !default; /* a0cfff */
+$primary-2-light-6: mix($--color-white, $primary-2, 60%) !default; /* b3d8ff */
+$primary-2-light-7: mix($--color-white, $primary-2, 70%) !default; /* c6e2ff */
+$primary-2-light-8: mix($--color-white, $primary-2, 80%) !default; /* d9ecff */
+$primary-2-light-9: mix($--color-white, $primary-2, 90%) !default; /* ecf5ff */
+
+// theme 3
+$primary-3: #FFB822;
+
+$primary-3-light-1: mix($--color-white, $primary-3, 10%) !default; /* 53a8ff */
+$primary-3-light-2: mix($--color-white, $primary-3, 20%) !default; /* 66b1ff */
+$primary-3-light-3: mix($--color-white, $primary-3, 30%) !default; /* 79bbff */
+$primary-3-light-4: mix($--color-white, $primary-3, 40%) !default; /* 8cc5ff */
+$primary-3-light-5: mix($--color-white, $primary-3, 50%) !default; /* a0cfff */
+$primary-3-light-6: mix($--color-white, $primary-3, 60%) !default; /* b3d8ff */
+$primary-3-light-7: mix($--color-white, $primary-3, 70%) !default; /* c6e2ff */
+$primary-3-light-8: mix($--color-white, $primary-3, 80%) !default; /* d9ecff */
+$primary-3-light-9: mix($--color-white, $primary-3, 90%) !default; /* ecf5ff */
+
+/// color|1|Functional Color|1
+$--color-success: #67C23A !default;
+/// color|1|Functional Color|1
+$--color-warning: #E6A23C !default;
+/// color|1|Functional Color|1
+$--color-danger: #FA5E5F !default;
+/// color|1|Functional Color|1
+$--color-info: #909399 !default;
+
+$--color-success-light: mix($--color-white, $--color-success, 80%) !default;
+$--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
+$--color-danger-light: mix($--color-white, $--color-danger, 80%) !default;
+$--color-info-light: mix($--color-white, $--color-info, 80%) !default;
+
+$--color-success-lighter: mix($--color-white, $--color-success, 90%) !default;
+$--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
+$--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
+$--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
+/// color|1|Font Color|2
+$--color-text-primary: #303133 !default;
+/// color|1|Font Color|2
+$--color-text-regular: #606266 !default;
+/// color|1|Font Color|2
+$--color-text-secondary: #909399 !default;
+/// color|1|Font Color|2
+$--color-text-placeholder: #C0C4CC !default;
+/// color|1|Border Color|3
+$--border-color-base: #DCDFE6 !default;
+/// color|1|Border Color|3
+$--border-color-light: #E4E7ED !default;
+/// color|1|Border Color|3
+$--border-color-lighter: #EBEEF5 !default;
+/// color|1|Border Color|3
+$--border-color-extra-light: #F2F6FC !default;
+
+// Background
+/// color|1|Background Color|4
+$--background-color-base: #F5F7FA !default;
+
+/* Link
+-------------------------- */
+$--link-color: $primary-1-light-2 !default;
+$--link-hover-color: $primary-1 !default;
+
+/* Border
+-------------------------- */
+$--border-width-base: 1px !default;
+$--border-style-base: solid !default;
+$--border-color-hover: $--color-text-placeholder !default;
+$--border-base: $--border-width-base $--border-style-base $--border-color-base !default;
+/// borderRadius|1|Radius|0
+$--border-radius-base: 4px !default;
+/// borderRadius|1|Radius|0
+$--border-radius-small: 2px !default;
+/// borderRadius|1|Radius|0
+$--border-radius-circle: 100% !default;
+/// borderRadius|1|Radius|0
+$--border-radius-zero: 0 !default;
+
+// Box-shadow
+/// boxShadow|1|Shadow|1
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
+// boxShadow|1|Shadow|1
+$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12) !default;
+/// boxShadow|1|Shadow|1
+$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+
+/* Fill
+-------------------------- */
+$--fill-base: $--color-white !default;
+
+/* Typography
+-------------------------- */
+$--font-path: 'fonts' !default;
+/// fontSize|1|Font Size|0
+$--font-size-extra-large: 20px !default;
+/// fontSize|1|Font Size|0
+$--font-size-large: 18px !default;
+/// fontSize|1|Font Size|0
+$--font-size-medium: 16px !default;
+/// fontSize|1|Font Size|0
+$--font-size-base: 14px !default;
+/// fontSize|1|Font Size|0
+$--font-size-small: 13px !default;
+/// fontSize|1|Font Size|0
+$--font-size-extra-small: 12px !default;
+/// fontWeight|1|Font Weight|1
+$--font-weight-primary: 500 !default;
+/// fontWeight|1|Font Weight|1
+$--font-weight-secondary: 100 !default;
+/// fontLineHeight|1|Line Height|2
+$--font-line-height-primary: 24px !default;
+/// fontLineHeight|1|Line Height|2
+$--font-line-height-secondary: 16px !default;
+$--font-color-disabled-base: #bbb !default;
+/* Size
+-------------------------- */
+$--size-base: 14px !default;
+
+/* z-index
+-------------------------- */
+$--index-normal: 1 !default;
+$--index-top: 1000 !default;
+$--index-popper: 2000 !default;
+
+/* Disable base
+-------------------------- */
+$--disabled-fill-base: $--background-color-base !default;
+$--disabled-color-base: $--color-text-placeholder !default;
+$--disabled-border-base: $--border-color-light !default;

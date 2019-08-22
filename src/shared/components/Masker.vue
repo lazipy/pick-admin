@@ -62,6 +62,6 @@ export default {
     right: 0;
     overflow: auto;
     z-index: $--index-popper;
-    background-color: rgba($--color-black, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
   }
 </style>

@@ -104,10 +104,15 @@ export default {
       height: 60px;
       line-height: 60px;
       cursor: pointer;
-
-      &:hover {
-        background-color: $--color-primary-light-9;
-      }
     }
+  }
+  .theme-4C70E8 .float-right > div:hover {
+    background-color: $primary-1-light-9;
+  }
+  .theme-1DC9B7 .el-menu-item.is-active {
+    background-color: $primary-2-light-9;
+  }
+  .theme-FFB822 .el-menu-item.is-active {
+    background-color: $primary-3-light-9;
   }
 </style>
