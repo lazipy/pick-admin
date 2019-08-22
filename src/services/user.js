@@ -23,3 +23,15 @@ export function queryUserInfo (data) {
     data
   })
 }
+
+/**
+ * query user menus
+ * @param {*} data
+ */
+export function queryUserMenus (data) {
+  return request({
+    url: '/app/menus',
+    method: 'post',
+    data
+  })
+}

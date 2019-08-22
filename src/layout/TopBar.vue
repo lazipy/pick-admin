@@ -74,8 +74,10 @@ export default {
     avatarHandler (path) {
       if (path === '/login') {
         window.sessionStorage.removeItem('userName')
+        window.location.reload()
+      } else {
+        this.navigatorTo(path)
       }
-      this.navigatorTo(path)
     },
     // router push
     navigatorTo (path) {

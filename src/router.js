@@ -2,6 +2,7 @@ export default [
   {
     path: '/login',
     name: 'login',
+    isNotMenu: true,
     component: () => import('@/pages/login.vue'),
     meta: {
       title: 'login'
@@ -10,6 +11,7 @@ export default [
   {
     indexRouter: true,
     path: '/',
+    isNotMenu: true,
     component: () => import('@/layout/index.vue'),
     redirect: '/welcome',
     meta: { title: 'home' },
@@ -17,21 +19,24 @@ export default [
       {
         path: 'welcome',
         name: 'welcome',
+        isNotMenu: true,
         component: () => import('@/pages/welcome.vue'),
-        meta: { title: 'overview' }
+        meta: { title: 'overview', noCache: true }
       }
     ]
   },
   {
     path: '/404',
     name: 'notFount',
+    isNotMenu: true,
     component: () => import('@/pages/404.vue'),
-    meta: { title: '404' }
+    meta: { title: '404', noCache: true }
   },
   {
     path: '/500',
     name: 'error',
+    isNotMenu: true,
     component: () => import('@/pages/500.vue'),
-    meta: { title: '500' }
+    meta: { title: '500', noCache: true }
   }
 ]

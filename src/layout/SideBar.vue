@@ -1,17 +1,26 @@
 <template>
   <el-aside :width="width" class="aside-bar" :class="collapsed && 'collapsed'">
     <!-- logo -->
-    <div class="logo-wrap" @click="backhome">
+    <div class="logo-wrap" @click="navigatorTo('/welcome')">
       <img class="logo" src="../assets/images/logo.svg" alt="logo">
       <img class="desc" src="../assets/images/layout_logo.png" alt="logo">
     </div>
 
     <!-- menu -->
-    <el-menu :collapse="collapsed" background-color="#1F233E" text-color="#adb5bd" active-text-color="#fff">
-      <el-submenu index="1">
-        <template slot="title"><i class="el-icon-message"></i><span class="submenu-title">导航一</span></template>
-        <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-      </el-submenu>
+    <el-menu :collapse="collapsed" :default-active="defaultActive" background-color="#1F233E" text-color="#adb5bd" active-text-color="#fff">
+      <template v-for="item in permissionRoutes">
+        <el-submenu v-if="!item.isNotMenu" :key="item.name" :index="item.path">
+          <template slot="title">
+            <i class="iconfont" :class="item.meta.icon"></i>
+            <span class="submenu-title">{{ $t(`router.${item.meta.title}`) }}</span>
+          </template>
+          <template v-if="item.children && item.children.length > 0">
+            <template v-for="menu in item.children">
+              <el-menu-item :index="item.path + '/' + menu.path" v-if="!menu.isNotMenu" :key="menu.name" @click="navigatorTo(`${item.path}/${menu.path}`)">{{ $t(`router.${menu.meta.title}`) }}</el-menu-item>
+            </template>
+          </template>
+        </el-submenu>
+      </template>
     </el-menu>
 
     <!-- trigger -->
@@ -22,6 +31,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'SideBar',
   data () {
@@ -30,17 +41,23 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      permissionRoutes: 'user/permissionRoutes'
+    }),
+    defaultActive () {
+      return this.$route.path
+    },
     width () {
       return this.collapsed ? '64px' : '240px'
     }
   },
   methods: {
-    backhome () {
-      if (this.$route.path === '/welcome') return
-      this.$router.push('/welcome')
-    },
     toggle () {
       this.collapsed = !this.collapsed
+    },
+    navigatorTo (url) {
+      if (this.$route.path === url) return
+      this.$router.push(url)
     }
   }
 }
@@ -75,6 +92,7 @@ export default {
       cursor: pointer;
       color: #ffffff;
       overflow: hidden;
+      margin-bottom: 10px;
     }
     .logo {
       height: 36px;
@@ -91,6 +109,9 @@ export default {
       overflow: auto;
       border-right: none;
 
+      .submenu-title {
+        margin-left: 8px;
+      }
       .el-menu-item.is-active {
         background-color: $--color-primary !important;;
       }

@@ -4,6 +4,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import layoutRoutes from '@/router.js'
 import store from './vuex'
+import _ from 'lodash'
 
 let moduleRoutes = []
 // 添加访问历史记录
@@ -61,15 +62,25 @@ let router = new Router({
  */
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
+
+  // 获取用户token
   const userName = window.sessionStorage.getItem('userName')
+
   if (userName) {
     if (to.path === '/login') {
       next('/')
       NProgress.done()
     } else if (!store.state.user.userInfo.id) {
+      // 查询用户信息
       await store.dispatch('user/query', { name: userName })
-      moduleRoutes.push({ path: '*', redirect: '/404' })
-      router.addRoutes(moduleRoutes)
+      await store.dispatch('user/queryMenus', { name: userName, moduleRoutes })
+      // 获取动态路由表
+      let permissionRoutes = _.cloneDeep(store.state.user.permissionRoutes)
+      // 添加重定向
+      permissionRoutes.push({ path: '*', redirect: '/404' })
+      // 动态添加到路由对象中
+      router.addRoutes(permissionRoutes)
+      // 刷新当前路由
       next({ path: to.path, replace: true })
     } else {
       next()

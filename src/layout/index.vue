@@ -6,10 +6,12 @@
     <el-container direction="vertical">
       <!-- 头部 -->
       <top-bar />
+      <!-- tag views -->
+      <tag-view></tag-view>
       <!-- 内容主体 -->
       <el-main>
         <div class="body">
-          <router-view></router-view>
+          <main-content />
         </div>
       </el-main>
     </el-container>
@@ -19,10 +21,12 @@
 <script>
 import SideBar from './SideBar'
 import TopBar from './TopBar'
+import TagView from '@/shared/components/TagView'
+import MainContent from './Content'
 
 export default {
   name: 'layout',
-  components: { SideBar, TopBar }
+  components: { SideBar, TopBar, TagView, MainContent }
 }
 </script>
 
