@@ -19,14 +19,18 @@ module.exports = {
     const { type, page, pageSize } = req.body
 
     let list = []
+    let total = 0
 
     if (type === 0) {
       list = messages.slice(page * pageSize, page * pageSize + pageSize)
+      total = messages.length
     } else if (type === 1) {
       list = messages.filter(item => item.read)
+      total = list.length
       list = list.slice(page * pageSize, page * pageSize + pageSize)
     } else {
       list = messages.filter(item => !item.read)
+      total = list.length
       list = list.slice(page * pageSize, page * pageSize + pageSize)
     }
 
@@ -36,7 +40,7 @@ module.exports = {
         msg: '获取成功',
         data: {
           list,
-          total: messages.length
+          total
         }
       })
     }, 1000)
