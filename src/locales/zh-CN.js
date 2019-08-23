@@ -26,5 +26,14 @@ export default {
     profile: '个人信息',
     modifyPassword: '修改密码',
     logout: '退出登录'
+  },
+  // 个人中心
+  personal: {
+    // 消息列表
+    message: {
+      all: '全部',
+      read: '已读',
+      unread: '未读'
+    }
   }
 }

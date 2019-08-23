@@ -15,9 +15,9 @@ export default {
   data () {
     return {
       source: [
-        { value: 0, label: '全部' },
-        { value: 1, label: '已读' },
-        { value: 2, label: '未读' }
+        { value: 0, label: this.$t('personal.message.all') },
+        { value: 1, label: this.$t('personal.message.read') },
+        { value: 2, label: this.$t('personal.message.unread') }
       ],
       type: 0
     }

@@ -44,7 +44,7 @@
 <script>
 import Divider from '@/shared/components/Divider'
 import SwitchLanguage from '@/shared/components/SwitchLanguage'
-import particlesOptions from '@/shared/config/particles'
+import particlesOptions from '@/shared/vendors/particles'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -95,17 +95,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .theme-4C70E8 #login canvas.particles-js-canvas-el {
-    background-color: $primary-1-light-2;
-  }
-  .theme-1DC9B7 #login canvas.particles-js-canvas-el {
-    background-color: $primary-2-light-2;
-  }
-  .theme-FFB822 #login canvas.particles-js-canvas-el {
-    background-color: $primary-2-light-2;
-  }
   #login {
     height: 100vh;
+
+    canvas.particles-js-canvas-el {
+      background-color: $--color-primary-light-2;
+    }
 
     // header style
     header {

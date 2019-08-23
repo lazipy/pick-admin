@@ -68,33 +68,15 @@ export default {
     .el-radio-button:first-child .el-radio-button__inner, .el-radio-button:last-child .el-radio-button__inner {
       margin: 0;
     }
-  }
 
-  .theme-4C70E8 .search-radio .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-    color: $primary-1;
-    background-color: $primary-1-light-8;
-    box-shadow: -2px 0 0 0 $primary-1-light-8;
+    .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+      color: $--color-primary;
+      background-color: $--color-primary-light-8;
+      box-shadow: -2px 0 0 0 $--color-primary-light-8;
 
-    &::before {
-      background-color: $primary-1-light-1;
-    }
-  }
-  .theme-1DC9B7 .search-radio .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-    color: $primary-2;
-    background-color: $primary-2-light-8;
-    box-shadow: -2px 0 0 0 $primary-2-light-8;
-
-    &::before {
-      background-color: $primary-2-light-1;
-    }
-  }
-  .theme-FFB822 .search-radio .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-    color: $primary-3;
-    background-color: $primary-3-light-8;
-    box-shadow: -2px 0 0 0 $primary-3-light-8;
-
-    &::before {
-      background-color: $primary-3-light-1;
+      &::before {
+        background-color: $--color-primary-light-1;
+      }
     }
   }
 </style>

@@ -150,6 +150,7 @@ export default {
         margin-left: 6px;
         margin-top: 4px;
         text-decoration: none;
+
         &:first-of-type {
           margin-left: 30px;
         }
@@ -158,6 +159,8 @@ export default {
         }
         &.active {
           color: #fff;
+          background-color: $--color-primary-light-2;
+          border-color: $--color-primary-light-2;
           &::before {
             content: '';
             background: #fff;
@@ -210,17 +213,5 @@ export default {
         }
       }
     }
-  }
-  .theme-4C70E8 .tags-view-container .tags-view-item.active {
-    background-color: $primary-1-light-2;
-    border-color: $primary-1-light-2;
-  }
-  .theme-1DC9B7 .tags-view-container .tags-view-item.active {
-    background-color: $primary-2-light-2;
-    border-color: $primary-2-light-2;
-  }
-  .theme-FFB822 .tags-view-container .tags-view-item.active {
-    background-color: $primary-3-light-2;
-    border-color: $primary-3-light-2;
   }
 </style>

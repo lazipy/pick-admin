@@ -138,43 +138,6 @@ export default {
 }
 </script>
 <style lang="scss">
-  .theme-4C70E8 {
-    .drawer {
-      .close {
-        background-color: $primary-1;
-      }
-    }
-    .handle {
-      &::before, &::after {
-        background-color: rgba($primary-1, .8);
-      }
-    }
-  }
-  .theme-1DC9B7 {
-    .drawer {
-      .close {
-        background-color: $primary-2;
-      }
-    }
-    .handle {
-      &::before, &::after {
-        background-color: rgba($primary-2, .8);
-      }
-    }
-  }
-  .theme-FFB822 {
-    .drawer {
-      .close {
-        background-color: $primary-3;
-      }
-    }
-    .handle {
-      &::before, &::after {
-        background-color: rgba($primary-3, .8);
-      }
-    }
-  }
-
   .drawer {
     position: fixed;
     top: 0;
@@ -200,6 +163,7 @@ export default {
       text-align: center;
       line-height: 48px;
       color: #ffffff;
+      background-color: $--color-primary;
       cursor: pointer;
 
       .iconfont {
@@ -238,6 +202,7 @@ export default {
         width: 1px;
         height: 100%;
         content: ' ';
+        background-color: rgba($--color-primary, .8);
       }
 
       &::after {
@@ -247,6 +212,7 @@ export default {
         height: 18px;
         content: ' ';
         transform: translateY(-50%);
+        background-color: rgba($--color-primary, .8);
       }
 
       &:hover {
