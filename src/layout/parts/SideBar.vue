@@ -2,8 +2,8 @@
   <el-aside :width="width" class="aside-bar" :class="collapsed && 'collapsed'">
     <!-- logo -->
     <div class="logo-wrap" @click="navigatorTo('/welcome')">
-      <img class="logo" src="../assets/images/logo.svg" alt="logo">
-      <img class="desc" src="../assets/images/layout_logo.png" alt="logo">
+      <img class="logo" src="../../assets/images/logo.svg" alt="logo">
+      <img class="desc" src="../../assets/images/layout_logo.png" alt="logo">
     </div>
 
     <!-- menu -->

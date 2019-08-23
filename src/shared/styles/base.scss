@@ -11,10 +11,6 @@
   float: right;
 }
 
-[class^="el-icon-"], [class*=" el-icon-"] {
-  color: #606266;
-}
-
 $lines: 2, 3, 4, 5;
 
 .text-ellipsis { @include text-truncate; }
@@ -22,4 +18,10 @@ $lines: 2, 3, 4, 5;
   .text-ellipsis-#{$line} {
     @include ellipsis($line);
   }
+}
+
+.operator-svg .svg-icon {
+  font-size: 20px;
+  margin: 0 5px;
+  cursor: pointer;
 }

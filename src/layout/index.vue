@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import Setting from './Setting'
-import SideBar from './SideBar'
-import TopBar from './TopBar'
+import Setting from './parts/Setting'
+import SideBar from './parts/SideBar'
+import TopBar from './parts/TopBar'
+import MainContent from './parts/Content'
 import TagView from '@/shared/components/TagView'
-import MainContent from './Content'
 
 export default {
   name: 'layout',
@@ -45,7 +45,7 @@ export default {
     .el-main {
       background-color: #f1f2f6;
       .body {
-        padding: 12px 16px;
+        padding: 16px 30px 24px 20px;
         min-height: 100%;
         background-color: #fff;
       }

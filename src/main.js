@@ -21,7 +21,10 @@ import '@/shared/styles/index.scss'
 // entry app
 import App from './App.vue'
 
-Vue.use(ElementUI)
+Vue.use(ElementUI, {
+  i18n: (key, value) => i18n.t(key, value)
+})
+
 Vue.use(vClickOutside)
 
 Vue.config.productionTip = false

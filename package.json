@@ -45,6 +45,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "google-baidu-translate-api": "^1.0.3",
     "lint-staged": "^8.1.5",
+    "mockjs": "^1.0.1-beta3",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-mock": "^0.0.7",

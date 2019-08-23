@@ -32,8 +32,9 @@ export default {
 <style lang="scss">
   .layout-setting {
     position: fixed;
-    top: 200px;
+    top: 120px;
     right: 0;
+    z-index: 99;
     width: 48px;
     height: 48px;
     text-align: center;
